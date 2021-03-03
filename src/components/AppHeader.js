@@ -8,18 +8,23 @@ import Logo from './images/Logo.png'
 const Appheader = () => {
     
     const header = useRef(null);
+    const lhwrap = useRef(null);
+    
+    /**Collaps header when the name is set */
+    function shrinkHeader(){
 
-    function shrinkHeader(paramFromChild){
-        console.log(paramFromChild+" from child")
-        
+       if(header.current.classList.value==='headerActive'){
+            header.current.classList.toggle("shrink");
+            lhwrap.current.classList.toggle("gone");
+       }
     }
 
  return(  
  <div>
- <header ref={header}>
+ <header ref={header} className="headerActive">
     <span className="miniHeader">Lost in translation</span>
     <hr className="divider" />
-    <div className="lhwrap">
+    <div ref={lhwrap} className="lhwrap">
         <div className="logowrap">
             <img src={Logo} className="logoimg" alt="lost-in-translation logo"/>
         </div>
@@ -29,7 +34,7 @@ const Appheader = () => {
         </div>
     </div>
 </header>
-<Inputbar shrinkHeader={(paramFromChild) => shrinkHeader(paramFromChild) }/>
+<Inputbar shrinkHeader={() => shrinkHeader() }/>
 </div>);
 };
 

@@ -27,7 +27,6 @@ const InputBar = ({shrinkHeader}) => {
       };
       setNewValue([...value, newValue]);
       inputValue.current.value = "";
-      shrinkHeader("hello")
     }
 
    }

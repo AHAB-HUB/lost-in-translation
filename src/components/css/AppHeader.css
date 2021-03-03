@@ -12,12 +12,18 @@
 }
 
 /*header component*/
-header {
+.headerActive {
     position: relative;
     background-color: var(--yellow);
     width: 100vw;
-    height: 50vh;
-
+    height: 30rem;
+    transition: height 0.15s ease-out;
+    overflow: hidden;
+}
+.headerActive.shrink{
+    height: 15rem!important;
+    transition: height 1s ease-out;
+   
 }
 
 hr.divider {
@@ -34,10 +40,15 @@ hr.divider {
     padding-top: 4rem;
 
 }
+.lhwrap.gone{
+    padding-top: 15rem!important;
+    transition: padding-top 1s ease-out;
+}
 
 .hwrap {
     display: block;
     position: relative;
+    height: 2rem;
 
 }
 
@@ -46,17 +57,15 @@ hr.divider {
     height: 40%;
     width: 10%;
     display: block;
-    /* float: left;*/
     background-image: url(/src/components/images/Splash.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    /* margin-left: calc(45vw - 25%);*/
     margin: 0 1rem 0 0;
 
 }
 
 .logoimg {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: auto;
     top: 5%;
