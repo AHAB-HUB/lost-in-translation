@@ -1,0 +1,67 @@
+
+.miniHeader {
+    position: relative;
+    display: block;
+    font-family: 'Love Ya Like A Sister';
+    color: white;
+    font-weight: lighter;
+    text-rendering: geometricPrecision;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-left: calc(45vw - 25%);
+}
+
+/*header component*/
+header {
+    position: relative;
+    background-color: var(--yellow);
+    width: 100vw;
+    height: 50vh;
+
+}
+
+hr.divider {
+    border: none;
+    border-bottom: 0.1rem solid var(--yellow_dark);
+}
+
+.lhwrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+
+}
+
+.hwrap {
+    display: block;
+    position: relative;
+
+}
+
+.logowrap {
+    position: relative;
+    height: 40%;
+    width: 10%;
+    display: block;
+    /* float: left;*/
+    background-image: url(/src/components/images/Splash.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-left: calc(45vw - 25%);*/
+    margin: 0 1rem 0 0;
+
+}
+
+.logoimg {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 5%;
+}
+
+.hwrap {
+    display: inline-block;
+}
