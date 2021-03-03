@@ -6,10 +6,12 @@ import './css/Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const InputBar = ({passToHeader}) => {
+const InputBar = ({passToHeader,passToOutPutBox}) => {
    
-    const [value, setNewValue] = useState([]);
-    const inputValue = useRef(null);
+   // const [value, setNewValue] = useState([]);
+   
+   const [value, setNewValue] = useState([]);
+   const inputValue = useRef(null);
     
     const inputwrap = useRef(null);
     const inputwhitewrap = useRef(null);
@@ -36,7 +38,11 @@ const InputBar = ({passToHeader}) => {
       inputwrap.current.classList.toggle("nobg1");
       inputwhitewrap.current.classList.toggle("nobg2");
       passToHeader("From the other side")
-      //shrinkHeader()
+     
+    }
+
+    if(inputValue.current.value && inputValue.current.placeholder==="Time to translate"){
+      passToOutPutBox( inputValue.current.value )
     }
 
    }

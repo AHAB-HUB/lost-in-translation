@@ -1,12 +1,21 @@
-import React from "react";
+
+import React, { forwardRef,useRef, useImperativeHandle } from "react";
 import '../App.css';
 import './css/OutPutBox.css'
 import {HandSigns} from './utils/HandSigns'
 import signhands from './images/sign-spritesheet-1200.png'
 
-const Outputbox = () => {
+const Outputbox = forwardRef((props, ref) => {
 
     const handPos=HandSigns();
+
+    useImperativeHandle(ref,() => ({
+        
+        translate(strToTranslate){
+            console.log("from box "+strToTranslate)    
+        }
+
+    }),);
     
     return (
         <div>
@@ -27,6 +36,6 @@ const Outputbox = () => {
             </div>
 
         </div>);
-};
+});
 
 export default Outputbox;
