@@ -14,36 +14,40 @@ const Outputbox = forwardRef((props, ref) => {
         
 
         translate(strToTranslate){
-            let ArrToTranslate=strToTranslate.toUpperCase().split('');
-           
-            const lettersList = letter => ArrToTranslate.includes(letter)
-            const result = handPos.filter(item => lettersList(item.letter))    
-            const c = ArrToTranslate.map((i) => result.find((j) => j.letter === i));
             
-            setTranslate(c)
+            /**create array from the string  */
+            let ArrToTranslate=strToTranslate.toUpperCase().split('');
+           /**Find matching letters in in hand potision object */
+            const lettersList = letter => ArrToTranslate.includes(letter)
+            let result = handPos.filter(item => lettersList(item.letter))  
+            /**Sort the matching letters so the match the strings array index */  
+            const translation = ArrToTranslate.map((i) => result.find((j) => j.letter === i));
+           
+            setTranslate (translation)
+        
         }
 
     }),);
-
-
+    /**
+     * random unique key for react to keep track of
+     * child in list
+     */
+    function randKey(){
+        return Math.random().toString(36).substr(2, 9);
+    }
     
     return (
         <div>
             <div className="outputwrap">
                 <div className="outputwhitewrap">
-                    {/*
-                {handPos.map((handPos) => 
-          
-
-                <div className="hands" hand-data={handPos.letter} key={handPos.letter}>
-                    <img src={signhands} style={{left:"-"+handPos.x+'px',top:"-"+handPos.y+'px'} } alt={"ASL hand of the letter "+handPos.letter} />
+                    
+                {translate.map((translate) => 
+                <div className="hands" hand-data={translate.letter} key={randKey()}>
+                    <img src={signhands} style={{left:"-"+translate.x+'px',top:"-"+translate.y+'px'} } alt={"ASL hand of the letter "+translate.letter} />
                 </div>
-              // <img src={signhands} style={ {left:handPos.x+'px'}+";"+{top:handPos.y}} alt={"ASL hand of the letter "+handPos.letter} />
-
-                
                 
                 )}
-                */}
+            
                 </div>
             </div>
                 
