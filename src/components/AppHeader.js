@@ -1,4 +1,6 @@
-import React, { useRef,useState } from "react";
+import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
+
 import Inputbar from './InputBar'
 
 
@@ -9,13 +11,15 @@ const Appheader = () => {
     
     const header = useRef(null);
     const lhwrap = useRef(null);
-    
+    let history = useHistory();
+
     /**Collaps header when the name is set */
     function shrinkHeader(){
 
        if(header.current.classList.value==='headerActive'){
             header.current.classList.toggle("shrink");
             lhwrap.current.classList.toggle("gone");
+            history.push("/translate");
        }
     }
 

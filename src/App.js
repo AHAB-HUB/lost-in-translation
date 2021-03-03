@@ -1,5 +1,8 @@
 import './App.css';
 
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+
+import Home from './components/Home'
 import Appheader from './components/AppHeader'
 import Outputbox from './components/OutPutbox'
 
@@ -13,9 +16,17 @@ library.add(fab,far, faArrowAltCircleRight, faKeyboard)
 function App() {
   return (
        <div>
+   <Router>
         <Appheader/>
-       
-        <Outputbox/>
+    
+            
+            <Switch>
+      <Route exact path='/' component={Home}/>
+      <Route path='/translate' component={Outputbox}/>
+            </Switch>
+
+  </Router>    
+
         </div>
   );
 }

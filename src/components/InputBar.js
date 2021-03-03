@@ -6,7 +6,6 @@ import './css/Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-
 const InputBar = ({shrinkHeader}) => {
    
     const [value, setNewValue] = useState([]);
@@ -27,6 +26,7 @@ const InputBar = ({shrinkHeader}) => {
       };
       setNewValue([...value, newValue]);
       inputValue.current.value = "";
+      shrinkHeader()
     }
 
    }
