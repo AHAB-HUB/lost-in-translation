@@ -1,5 +1,5 @@
 
-import React, { forwardRef,useRef, useImperativeHandle } from "react";
+import React, { forwardRef,useState, useImperativeHandle } from "react";
 import '../App.css';
 import './css/OutPutBox.css'
 import {HandSigns} from './utils/HandSigns'
@@ -8,19 +8,30 @@ import signhands from './images/sign-spritesheet-1200.png'
 const Outputbox = forwardRef((props, ref) => {
 
     const handPos=HandSigns();
+    const [translate, setTranslate] = useState([]);
 
     useImperativeHandle(ref,() => ({
         
+
         translate(strToTranslate){
-            console.log("from box "+strToTranslate)    
+            let ArrToTranslate=strToTranslate.toUpperCase().split('');
+           
+            const lettersList = letter => ArrToTranslate.includes(letter)
+            const result = handPos.filter(item => lettersList(item.letter))    
+            const c = ArrToTranslate.map((i) => result.find((j) => j.letter === i));
+            
+            setTranslate(c)
         }
 
     }),);
+
+
     
     return (
         <div>
             <div className="outputwrap">
                 <div className="outputwhitewrap">
+                    {/*
                 {handPos.map((handPos) => 
           
 
@@ -32,9 +43,10 @@ const Outputbox = forwardRef((props, ref) => {
                 
                 
                 )}
+                */}
                 </div>
             </div>
-
+                
         </div>);
 });
 
