@@ -6,7 +6,7 @@ import './css/Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const InputBar = ({shrinkHeader}) => {
+const InputBar = ({passToHeader}) => {
    
     const [value, setNewValue] = useState([]);
     const inputValue = useRef(null);
@@ -35,8 +35,8 @@ const InputBar = ({shrinkHeader}) => {
       
       inputwrap.current.classList.toggle("nobg1");
       inputwhitewrap.current.classList.toggle("nobg2");
-
-      shrinkHeader()
+      passToHeader("From the other side")
+      //shrinkHeader()
     }
 
    }

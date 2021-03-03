@@ -1,10 +1,15 @@
 import './App.css';
 
+import React, { useRef } from 'react';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
-import Home from './components/Home'
+
 import Appheader from './components/AppHeader'
+import Home from './components/Home'
 import Outputbox from './components/OutPutbox'
+import Inputbar from './components//InputBar'
+
+
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -14,14 +19,23 @@ import {faArrowAltCircleRight, faKeyboard } from '@fortawesome/free-solid-svg-ic
 library.add(fab,far, faArrowAltCircleRight, faKeyboard)
 
 function App() {
+
+ const headerRef = useRef();
+
+ function passToHeader(fromChild){
+      console.log("Hello "+fromChild)
+      headerRef.current.shrinkHeader()
+ }     
+
   return (
        <div>
+             
    <Router>
-        <Appheader/>
-    
-            
+   
+      <Appheader ref={headerRef}/> 
+      <Inputbar passToHeader={passToHeader}/>
             <Switch>
-      <Route exact path='/' component={Home}/>
+      <Route exact path="/" component={Home}/>
       <Route path='/translate' component={Outputbox}/>
             </Switch>
 

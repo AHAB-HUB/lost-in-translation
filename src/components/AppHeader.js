@@ -1,19 +1,29 @@
-import React, { useRef } from "react";
+import React, { forwardRef,useRef, useImperativeHandle } from "react";
 import { useHistory } from "react-router-dom";
-
-import Inputbar from './InputBar'
-
 
 import '../App.css';
 import './css/AppHeader.css'
 import Logo from './images/Logo.png'
-const Appheader = () => {
+
+const Appheader = forwardRef((props, ref) => {
     
     const header = useRef(null);
     const lhwrap = useRef(null);
     let history = useHistory();
 
+    useImperativeHandle(ref,() => ({
+        shrinkHeader() {
+               
+                if(header.current.classList.value==='headerActive'){
+                    header.current.classList.toggle("shrink");
+                    lhwrap.current.classList.toggle("gone");
+                     history.push("/translate");
+               }
+
+            }}),);
+
     /**Collaps header when the name is set */
+    /*
     function shrinkHeader(){
 
        if(header.current.classList.value==='headerActive'){
@@ -22,7 +32,7 @@ const Appheader = () => {
             history.push("/translate");
        }
     }
-
+*/
  return(  
  <div>
  <header ref={header} className="headerActive">
@@ -38,8 +48,8 @@ const Appheader = () => {
         </div>
     </div>
 </header>
-<Inputbar shrinkHeader={() => shrinkHeader() }/>
+
 </div>);
-};
+});
 
 export default Appheader;

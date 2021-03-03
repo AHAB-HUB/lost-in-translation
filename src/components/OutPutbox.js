@@ -15,7 +15,7 @@ const Outputbox = () => {
                 {handPos.map((handPos) => 
           
 
-                <div className="hands" hand-data={handPos.letter}>
+                <div className="hands" hand-data={handPos.letter} key={handPos.letter}>
                     <img src={signhands} style={{left:"-"+handPos.x+'px',top:"-"+handPos.y+'px'} } alt={"ASL hand of the letter "+handPos.letter} />
                 </div>
               // <img src={signhands} style={ {left:handPos.x+'px'}+";"+{top:handPos.y}} alt={"ASL hand of the letter "+handPos.letter} />
