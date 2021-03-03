@@ -6,8 +6,8 @@ import './css/OutPutBox.css'
 const Outputbox = () => {
     return (
         <div>
-            <div class="outputwrap">
-                <div class="outputwhitewrap">
+            <div className="outputwrap">
+                <div className="outputwhitewrap">
                 </div>
             </div>
 
