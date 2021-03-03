@@ -10,7 +10,10 @@ const InputBar = ({shrinkHeader}) => {
    
     const [value, setNewValue] = useState([]);
     const inputValue = useRef(null);
-
+    
+    const inputwrap = useRef(null);
+    const inputwhitewrap = useRef(null);
+    
     useEffect(() => {
         const json = JSON.stringify(value);
         localStorage.setItem("value", json);
@@ -19,13 +22,20 @@ const InputBar = ({shrinkHeader}) => {
   
 
    const addValue =()=>{
-    if (inputValue.current.value) {
+     console.log(inputValue.current.placeholder)
+     
+    if (inputValue.current.value && inputValue.current.placeholder==="What's your name?") {
         const newValue = {
         id: Math.random().toString(36).substr(2, 9),
         name: inputValue.current.value,
       };
       setNewValue([...value, newValue]);
       inputValue.current.value = "";
+      inputValue.current.placeholder="Time to translate"
+      
+      inputwrap.current.classList.toggle("nobg1");
+      inputwhitewrap.current.classList.toggle("nobg2");
+
       shrinkHeader()
     }
 
@@ -35,8 +45,8 @@ const InputBar = ({shrinkHeader}) => {
     <div>
         {value.length>0 && <Profile name={value[0]}/>}
      <main>
-        <div className="inputwrap">
-                <div className="inputwhitewrap">
+        <div ref={inputwrap}  className="inputwrap">
+                <div ref={inputwhitewrap}  className="inputwhitewrap">
                     <div className="formwrap">
                     <div className="form-input ">
                         <label htmlFor="input" className="iconl"><FontAwesomeIcon className="far fa-keyboard" icon='keyboard'/></label>
