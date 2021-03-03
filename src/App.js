@@ -6,13 +6,15 @@ import {faArrowAltCircleRight, faKeyboard } from '@fortawesome/free-solid-svg-ic
 
 import Appheader from './components/AppHeader'
 import Inputbar from './components/InputBar'
+import Outputbox from './components/OutPutbox'
 
 library.add(fab,far, faArrowAltCircleRight, faKeyboard)
 function App() {
   return (
-    <div>
+       <div>
         <Appheader/>
         <Inputbar/>
+        <Outputbox/>
         </div>
   );
 }
