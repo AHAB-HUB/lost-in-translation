@@ -3,6 +3,7 @@ import Header from './shared/Header'
 import Footer from './shared/Footer'
 import Login from './containers/Login'
 import Translate from './containers/Translate'
+import Profile from './containers/Profile'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -20,6 +21,7 @@ function App() {
 
         <Switch>
           <Route path="/translate" component={Translate} />
+          <Route path="/profile" component={Profile} />
           <Route exact path="/" ><Login updateUsername={updateUsername} /></Route>
         </Switch>
 
