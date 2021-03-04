@@ -5,7 +5,7 @@ function Profile({name}){
     return(
         <div>
         <div className="profilewrap">
-            <div className="profileName">{name.name}</div>
+            <div className="profileName">{name}</div>
             <div className="profileImage"></div>
         </div>
 

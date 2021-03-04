@@ -1,10 +1,10 @@
-
-
-export function  HandSigns(){
-    
+/**Create an object to hold sprite sheet corordinates
+ * and add a letter to refernce
+*/
+export function HandSigns() {
 
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
-    const handPos=[];
+    const handPos = [];
 
     let x = 0;
     let y = 0;
@@ -18,7 +18,7 @@ export function  HandSigns(){
          *  75x4=300 
         */
 
-         if (i === 8) {
+        if (i === 8) {
             y = 75
         }
         if (i === 16) {
@@ -33,14 +33,12 @@ export function  HandSigns(){
          * Image is set to half size in css 1200/2 =600x300.
          * Each time the end of the image width is
          * reached reset x position to zerro
-         * */ 
+         * */
         if (x === 600) {
             x = 0
         }
 
-        
-
-        let posObj={id:i,letter:letters[i],x:x,y:y};
+        let posObj = { id: i, letter: letters[i], x: x, y: y };
         handPos.push(posObj)
         x += 75
     }
