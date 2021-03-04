@@ -19,12 +19,13 @@ function App() {
  const headerRef = useRef();
  const outputbox = useRef();
 
- function passToHeader(fromChild){
-      console.log("Hello "+fromChild)
+ function passToHeader(){
+      /**Animate header */
       headerRef.current.shrinkHeader()
  }     
 
 function passToOutPutBox(strTotranslate){
+
       outputbox.current.translate(strTotranslate);
 
 }

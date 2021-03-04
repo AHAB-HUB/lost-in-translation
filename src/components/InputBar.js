@@ -24,8 +24,11 @@ const InputBar = ({passToHeader,passToOutPutBox}) => {
   
 
    const addValue =()=>{
-     console.log(inputValue.current.placeholder)
-     
+
+    /**Make shure our input is clean */
+    let cleanValue = inputValue.current.value.replace(/[^a-zA-Z ]/g, ""); 
+    inputValue.current.value=cleanValue;
+
     if (inputValue.current.value && inputValue.current.placeholder==="What's your name?") {
         const newValue = {
         id: Math.random().toString(36).substr(2, 9),
@@ -37,11 +40,14 @@ const InputBar = ({passToHeader,passToOutPutBox}) => {
       
       inputwrap.current.classList.toggle("nobg1");
       inputwhitewrap.current.classList.toggle("nobg2");
-      passToHeader("From the other side")
+      /**Tell header to animate */
+      passToHeader()
      
     }
 
     if(inputValue.current.value && inputValue.current.placeholder==="Time to translate"){
+     //     let cleanValue = inputValue.current.value.replace(/\s|[0-9_]|\W|[#$%^&*()]/g, "") 
+
       passToOutPutBox( inputValue.current.value )
     }
 
@@ -57,7 +63,7 @@ const InputBar = ({passToHeader,passToOutPutBox}) => {
                     <div className="form-input ">
                         <label htmlFor="input" className="iconl"><FontAwesomeIcon className="far fa-keyboard" icon='keyboard'/></label>
                         <div className="iconr" onClick={addValue}><FontAwesomeIcon className="fas fon" icon='arrow-alt-circle-right'/></div>
-                        <input ref={inputValue}  id="input" type="text" className="input" placeholder="What's your name?" required/>
+                        <input ref={inputValue}  id="input" type="text" className="input" placeholder="What's your name?" pattern="[A-Za-z]" aria-label="Enter your translation here" required/>
                       </div>
                     </div>  
                 </div>
