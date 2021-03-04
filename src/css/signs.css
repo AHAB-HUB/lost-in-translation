@@ -1,0 +1,119 @@
+.sign {
+    height: 150px;
+    width: 150px;
+    transform: scale(0.5, 0.5);
+    -ms-transform: scale(0.5, 0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    margin: 0;
+    float: left;
+}
+
+.item-wrapper {
+    margin: 0;
+    max-width: 20%;
+    max-height: 20%;
+}
+
+.a {
+    background: url('../assets/images/sign-spritesheet-1200.png') 0 0;
+}
+
+.b {
+    background: url('../assets/images/sign-spritesheet-1200.png') -150px 0;
+}
+
+.c {
+    background: url('../assets/images/sign-spritesheet-1200.png') -300px 0;
+}
+
+.d {
+    background: url('../assets/images/sign-spritesheet-1200.png') -450px 0;
+}
+
+.e {
+    background: url('../assets/images/sign-spritesheet-1200.png') -600px 0;
+}
+
+.f {
+    background: url('../assets/images/sign-spritesheet-1200.png') -750px 0;
+}
+
+.g {
+    background: url('../assets/images/sign-spritesheet-1200.png') -900px 0;
+}
+
+.h {
+    background: url('../assets/images/sign-spritesheet-1200.png') -1050px 0;
+}
+
+.i {
+    background: url('../assets/images/sign-spritesheet-1200.png') 0 -150px;
+}
+
+.j {
+    background: url('../assets/images/sign-spritesheet-1200.png') -150px -150px;
+}
+
+.k {
+    background: url('../assets/images/sign-spritesheet-1200.png') -300px -150px;
+}
+
+.l {
+    background: url('../assets/images/sign-spritesheet-1200.png') -450px -150px;
+}
+
+.m {
+    background: url('../assets/images/sign-spritesheet-1200.png') -600px -150px;
+}
+
+.n {
+    background: url('../assets/images/sign-spritesheet-1200.png') -750px -150px;
+}
+
+.o {
+    background: url('../assets/images/sign-spritesheet-1200.png') -900px -150px;
+}
+
+.p {
+    background: url('../assets/images/sign-spritesheet-1200.png') -1050px -150px;
+}
+
+.q {
+    background: url('../assets/images/sign-spritesheet-1200.png') 0 -300px;
+}
+
+.r {
+    background: url('../assets/images/sign-spritesheet-1200.png') -150px -300px;
+}
+
+.s {
+    background: url('../assets/images/sign-spritesheet-1200.png') -300px -300px;
+}
+
+.t {
+    background: url('../assets/images/sign-spritesheet-1200.png') -450px -300px;
+}
+
+.u {
+    background: url('../assets/images/sign-spritesheet-1200.png') -600px -300px;
+}
+
+.v {
+    background: url('../assets/images/sign-spritesheet-1200.png') -750px -300px;
+}
+
+.w {
+    background: url('../assets/images/sign-spritesheet-1200.png') -900px -300px;
+}
+
+.x {
+    background: url('../assets/images/sign-spritesheet-1200.png') -1050px -300px;
+}
+
+.y {
+    background: url('../assets/images/sign-spritesheet-1200.png') 0 -450px;
+}
+
+.z {
+    background: url('../assets/images/sign-spritesheet-1200.png') -150px -450px;
+}
