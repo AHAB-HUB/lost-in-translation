@@ -3,6 +3,7 @@ import logo from '../../assets/images/Logo.png'
 import splash from '../../assets/Splash.svg'
 import { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import profile from '../../utils/user'
 
 const Login = ({ updateUsername }) => {
     const history = useHistory()
@@ -10,6 +11,10 @@ const Login = ({ updateUsername }) => {
 
     const onClickLogin = () => {
         updateUsername(input.current.value)
+        //save user name to local storage
+        const user = profile(input.current.value)
+        localStorage.setItem("data", JSON.stringify(user.getUser()))
+
         history.push('/translate')
     }
 
