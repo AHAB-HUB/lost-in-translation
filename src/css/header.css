@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nametag {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    padding-right: 20px;
+    padding-left: 5px;
+    border-radius: 7px;
+    position: relative;
+    right: -10px;
+}
+
+.image {
+    z-index: 1;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

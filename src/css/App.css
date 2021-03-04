@@ -1,0 +1,14 @@
+.app {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header,
+.footer {
+  background-color: #FFC75F;
+  color: white;
+  padding: 20px;
+  font-family: "Love Ya Like a sister"
+}
