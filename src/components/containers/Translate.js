@@ -1,18 +1,27 @@
 import { useState, useRef } from 'react';
 import '../../css/translate.css'
 import '../../css/signs.css'
+import profile from '../../utils/user'
 
 const Translate = () => {
     const [message, setMessage] = useState(null)
     const input = useRef(null)
 
+    //fetch user data from local storage
+    let user = profile()
+    user.setUser(JSON.parse(localStorage.getItem('data')))
+
     const onClickTranslate = () => {
         setMessage(input.current.value)
+
+        //save user data to local storage    
+        user.addTranslation(input.current.value)
+        localStorage.setItem("data", JSON.stringify(user.getUser()))
     }
 
     const signs = (message) ? message.replaceAll(/\s/g, "").split("").map(function (item, i) {
 
-        return <div class="item-wrapper">
+        return <div key={i} className="item-wrapper">
             <div key={i} className={"sign " + item} ></div>
         </div>
     }) : <div></div>
