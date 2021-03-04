@@ -3,13 +3,12 @@ import '../../css/translate.css'
 import '../../css/signs.css'
 
 const Translate = () => {
-    const [message, setMessage] = useState("ahmad")
+    const [message, setMessage] = useState(null)
     const input = useRef(null)
 
     const onClickTranslate = () => {
         setMessage(input.current.value)
     }
-
 
     const signs = (message) ? message.replaceAll(/\s/g, "").split("").map(function (item, i) {
 

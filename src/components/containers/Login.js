@@ -1,16 +1,16 @@
 import '../../css/login.css'
 import logo from '../../assets/images/Logo.png'
 import splash from '../../assets/Splash.svg'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 
-const Login = () => {
-
-    const [username, setUsername] = useState("b")
+const Login = ({ updateUsername }) => {
+    const history = useHistory()
     const input = useRef(null)
 
     const onClickLogin = () => {
-        setUsername(input.current.value)
-        //TODO: forward username to the header component
+        updateUsername(input.current.value)
+        history.push('/translate')
     }
 
     return (
