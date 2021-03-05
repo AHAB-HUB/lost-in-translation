@@ -1,24 +1,27 @@
-import { useRef, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-
 import '../../css/login.css'
 import logo from '../../assets/images/Logo.png'
 import splash from '../../assets/Splash.svg'
 import profile from '../../utils/user'
+import { setUsername } from '../../redux/actions/usernameActions'
+import { useRef, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
-const Login = ({ updateUsername }) => {
+const Login = () => {
     const history = useHistory()
     const [error, setError] = useState(null)
     const input = useRef(null)
+    const dispatch = useDispatch()
 
     const onClickLogin = () => {
-
+        //show error message if the input is empty
         if (input.current.value.replaceAll(/\s/g, "").length < 1) {
             setError("Enter a name first!")
             return;
         }
-
-        updateUsername(input.current.value)
+        //update state
+        dispatch(setUsername(input.current.value))
+        dispatch({ type: "SIGN_IN" })
         //save user name to local storage
         const user = profile(input.current.value)
         localStorage.setItem("data", JSON.stringify(user.getUser()))
