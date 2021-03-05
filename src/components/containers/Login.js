@@ -3,15 +3,22 @@ import logo from '../../assets/images/Logo.png'
 import splash from '../../assets/Splash.svg'
 import profile from '../../utils/user'
 import { setUsername } from '../../redux/actions/usernameActions'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
     const history = useHistory()
     const [error, setError] = useState(null)
     const input = useRef(null)
     const dispatch = useDispatch()
+    const islogged = useSelector(state => state.isLogged)
+
+    useEffect(() => {
+        if (islogged) {
+            history.push('/translate')
+        }
+    }, [history, islogged])
 
     const onClickLogin = () => {
         //show error message if the input is empty
