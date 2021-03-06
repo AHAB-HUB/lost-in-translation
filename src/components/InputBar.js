@@ -54,7 +54,7 @@ const InputBar = ({ passToHeader, passToOutPutBox, passToProfile }) => {
       setTranslation([...SaveTranslations(inputValue.current.value)])
       /**Pass input string to outputbox /translator */
       
-      passToOutPutBox(translation)
+      passToOutPutBox(inputValue.current.value)
     
     }
 

@@ -12,16 +12,16 @@ const ProfilePage = forwardRef((props, ref) => {
         updateList(translations) {
 
             setTranslate(translations)
-
             console.log(t)
-            console.log("from profile")
 
         }
 
 
     }));
 
-
+function clarlocal(){
+    localStorage.clear();
+}
 
     return (
 
@@ -40,7 +40,7 @@ const ProfilePage = forwardRef((props, ref) => {
             </ul>
             <div className="logoutwrap">
 
-                <div className="logout">LOGOUT</div>
+                {localStorage.getItem('username')!=null && <div className="logout" onClick={clarlocal}>LOGOUT</div>}
             </div>
 
         </div>
