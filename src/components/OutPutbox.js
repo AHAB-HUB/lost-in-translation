@@ -14,7 +14,7 @@ const Outputbox = forwardRef((props, ref) => {
     useImperativeHandle(ref, () => ({
 
         translate(strToTranslate) {
-            console.log(strToTranslate + " Trans")
+         
             /**create array from the string  */
             let ArrToTranslate = strToTranslate.toUpperCase().split('');
             /**Find matching letters in in hand potision object */

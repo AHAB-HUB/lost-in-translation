@@ -1,20 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef,useEffect } from "react";
 import '../App.css';
 import './css/InputBar.css'
 import Profile from './Profile';
 import './css/Profile.css'
 /*using fontawesome for the icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { MyLocalStorage } from './utils/MyLocalStorage'
+import MyLocalStorage from './utils/MyLocalStorage'
 import {SaveTranslations} from './utils/SaveTranslations'
-const InputBar = ({ passToHeader, passToOutPutBox }) => {
+const InputBar = ({ passToHeader, passToOutPutBox, passToProfile }) => {
 
   const [name, setName] = MyLocalStorage('username', '');
   const [translation, setTranslation] = MyLocalStorage('translations', []);
+  
 
   const inputValue = useRef(null);
   const inputwrap = useRef(null);
   const inputwhitewrap = useRef(null);
+
+  useEffect(() => {
+    if (translation) {
+     
+      passToProfile(translation)
+
+    }
+  }, [translation]);
+
 
   const addValue = () => {
    
@@ -36,13 +46,16 @@ const InputBar = ({ passToHeader, passToOutPutBox }) => {
 
       /**Tell header to animate */
       passToHeader()
+   
     }
 
     if (inputValue.current.value && inputValue.current.placeholder === "Time to translate") {
-      /**Save translations */
-      setTranslation([SaveTranslations(inputValue.current.value)])
+      /**SaveTranslations (bad name) creates an array no longer than 10 items long newest first oldest last*/
+      setTranslation([...SaveTranslations(inputValue.current.value)])
       /**Pass input string to outputbox /translator */
-      passToOutPutBox(inputValue.current.value)
+      
+      passToOutPutBox(translation)
+    
     }
 
   }
