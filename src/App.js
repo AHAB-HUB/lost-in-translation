@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useRef, Fragment, Redirect, Link } from 'react';
+import React, { useRef, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Appheader from './components/AppHeader'
@@ -17,8 +17,6 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { faArrowAltCircleRight, faKeyboard } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, far, faArrowAltCircleRight, faKeyboard)
-
-
 
 function App() {
 
@@ -38,11 +36,9 @@ function App() {
       }
 
       function passToProfile(translation) {
-
+            /**send translated value to profile */
             profilepageRef.current.updateList(translation)
       }
-
-
 
       return (
             <div>
@@ -51,24 +47,15 @@ function App() {
                         <Appheader ref={headerRef} />
                         <ProfilePage ref={profilepageRef} />
                         <Profile />
-
                         <Switch>
-
-
                               <Route exact path="/" component={() => <Inputbar passToHeader={passToHeader} />} />
-                              
-                              
-                              
-                             
-                                    <Route path='/translate'>
-                                          <Fragment>
-                                                <InputTranslation passToOutPutBox={passToOutPutBox} passToProfile={passToProfile} />
-                                                <Outputbox ref={outputbox} />
-                                          </Fragment>
-                                    </Route>
-                              
+                              <Route path='/translate'>
+                                    <Fragment>
+                                          <InputTranslation passToOutPutBox={passToOutPutBox} passToProfile={passToProfile} />
+                                          <Outputbox ref={outputbox} />
+                                    </Fragment>
+                              </Route>
                         </Switch>
-
                   </Router>
 
             </div>
@@ -78,5 +65,3 @@ function App() {
 }
 
 export default App;
-//<InputTranslation passToOutPutBox={passToOutPutBox} passToProfile={passToProfile}/>
-//                              <Route path='/translate' component={() => <Outputbox ref={outputbox} />} />

@@ -11,8 +11,7 @@ import { SaveTranslations } from './utils/SaveTranslations'
 
 const InputBar = ({ passToOutPutBox ,passToProfile}) => {
 
-   const [translation, setTranslation] = MyLocalStorage('translations', []);
-
+  const [translation, setTranslation] = MyLocalStorage('translations', []);
 
   const inputValue = useRef(null);
   const inputwrap = useRef(null);
@@ -30,15 +29,11 @@ const InputBar = ({ passToOutPutBox ,passToProfile}) => {
     }
   }, [translation]);
 
-
-
-
   const addTranslation = () => {
   
     /**Make sure the input is clean */
     let cleanValue = inputValue.current.value.replace(/[^a-zA-Z ]/g, "");
     inputValue.current.value = cleanValue;
-
 
     if (inputValue.current.value) {
     

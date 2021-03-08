@@ -40,7 +40,6 @@ const InputBar = ({ passToHeader}) => {
       inputValue.current.value = "";
       inputValue.current.placeholder = "Time to translate"
 
-
       /**Tell header to animate */
       passToHeader()
 
